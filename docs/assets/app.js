@@ -427,7 +427,7 @@
 
         const capGeom = new THREE.BoxGeometry(kw, kh, 7.2);
         const cx = xStart + c * pitch + 1.0 + kw / 2;
-        const cy = yStart + (3 - r) * pitch + 1.0 + kh / 2;
+        const cy = yStart + r * pitch + 1.0 + kh / 2;
         capGeom.translate(cx, cy, 1.5 + 3.6);
 
         const capMesh = new THREE.Mesh(

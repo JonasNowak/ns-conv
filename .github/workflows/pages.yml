@@ -15,19 +15,40 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
+    name: Build & Verify 3D WebGL Studio Bundles
     runs-on: ubuntu-latest
+    outputs:
+      pages_enabled: ${{ steps.check_pages.outputs.enabled }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Rebuild Pages 3D STL & Markdown Bundles
-        run: python3 scripts/build-pages-bundle.py
+        run: |
+          python3 scripts/build-pages-bundle.py
+          node --check docs/assets/app.js
+          node --check docs/assets/guides-bundle.js
+          node --check docs/assets/models-bundle.js
 
-      - name: Setup Pages
+      - name: Check if GitHub Pages is active on repository
+        id: check_pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if gh api "repos/${GITHUB_REPOSITORY}/pages" >/dev/null 2>&1; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "GitHub Pages is enabled for ${GITHUB_REPOSITORY}."
+          elif gh api -X POST "repos/${GITHUB_REPOSITORY}/pages" -f build_type=workflow >/dev/null 2>&1; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "GitHub Pages automatically enabled for ${GITHUB_REPOSITORY}."
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::GitHub Pages hosting is not active (repository is private on GitHub Free). All docs/ bundles and 3D WebGL assets built and verified successfully; make the repository public or enable Pages in Settings -> Pages to publish the live URL."
+          fi
+
+      - name: Configure Pages
+        if: steps.check_pages.outputs.enabled == 'true'
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact (docs/)
@@ -35,6 +56,15 @@ jobs:
         with:
           path: "docs"
 
+  deploy:
+    name: Publish to GitHub Pages
+    needs: build
+    if: needs.build.outputs.pages_enabled == 'true'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

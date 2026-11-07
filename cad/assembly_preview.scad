@@ -53,7 +53,7 @@ module ref_planck_keyboard() {
                 kh = pitch - 1.8;
 
                 color(is_space ? c_keycap_spc : (is_mod ? c_keycap_mod : c_keycap_al))
-                    translate([x_start + c * pitch + 0.9, y_start + (3 - r) * pitch + 0.9, planck_plate_t])
+                    translate([x_start + c * pitch + 0.9, y_start + r * pitch + 0.9, planck_plate_t])
                         hull() {
                             cube([kw, kh, 1.0]);
                             translate([1.8, 1.8, 7.5])
