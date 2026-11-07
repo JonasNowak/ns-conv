@@ -1,0 +1,45 @@
+flowchart TB
+    subgraph LID["UPPER LID ENCLOSURE (Translucent Lilac SLA)"]
+        SW_MB["Nintendo Switch v1 Mainboard (HAC-001)<br/>• Internal 4310mAh (16Wh) Battery Connected<br/>• 53-pin LCD & 34-pin Digitizer Untouched"]
+        SW_USBC["Switch Bottom USB-C Port"]
+        SW_RRAIL["Right Joy-Con ZIF Socket (10-Pin)"]
+        SPARE_JIG["Spare Right Joy-Con Rail Flex / Jig<br/>(Pin 10 HOME/RCM & Pin 1 GND)"]
+        RCM_SW["Recessed Momentary Tactile Switch (RCM-01)<br/>Top-Right Lid Edge (Normally Open)"]
+
+        SW_MB --- SW_USBC
+        SW_MB --- SW_RRAIL
+        SW_RRAIL ==>|10-Pin ZIF| SPARE_JIG
+        SPARE_JIG -->|Pin 10 RCM & Pin 1 GND<br/>30 AWG Silicone Pair| RCM_SW
+    end
+
+    subgraph HINGE["CENTRAL HINGE CHANNEL & REAR MODE JUNCTION"]
+        CAB01["CAB-01: 90° Right-Angle Flat Flexible USB-C 3.1 Ribbon<br/>(20 cm, 100W PD + 10Gbps, Service Loop in Hinge)"]
+        REAR_PKT["Rear Recessed Coupler Pocket<br/>• Normal Mode: Hub Upstream Plugged into CAB-01<br/>• RCM / Hekate UMS Mode: Unplug Hub & Connect PC/Dongle to CAB-01"]
+    end
+
+    subgraph BASE["LOWER BASE ENCLOSURE (Translucent Lilac SLA)"]
+        HUB["HUB-01: Internal 5-in-1 USB-C PD 3.0 Hub (115×27×12 mm)<br/>• Upstream USB-C Cable (15 cm)<br/>• 100W USB-C PD Input Port<br/>• 3× USB-A Data Ports + 1× 4K HDMI"]
+        PLANCK["DON-02: Drop × MIT Planck Rev 6 PCB<br/>(USB-C Receptacle, QMK 6KRO Mode)"]
+        TBALL["PER-01: 38mm QMK Trackball<br/>(Ploopy Nano 2 / RP2040-Zero + PMW3360, USB-C)"]
+        EXT_IO["Right-Side / Rear Exposed Cutouts<br/>• 1× Spare USB-A 3.0 Port<br/>• 1× 4K HDMI Out Port"]
+
+        subgraph PWR_SUB["Isolated Power Bank & Fused PD Subsystem"]
+            EXT_PD["CAB-03: Rear Panel-Mount USB-C PD Socket<br/>(External Wall Charger Input — 45W–65W PD)"]
+            PBANK["PWR-01: INIU 45W Slim Power Bank (10,000mAh / 37Wh)<br/>• UN 38.3 Certified, 15V @ 3.0A PD Output<br/>• Port C1: In/Out Pass-Through | Port C2/Out: 15V PD Out"]
+            SW_CUT["ELC-02: High-Current Power Cutoff Switch<br/>(Inline on VBUS — Isolates Bank in Storage)"]
+            FUSE["ELC-01: Inline 5A Fast-Acting Blade Fuse<br/>(16 AWG Holder on VBUS — Overcurrent Protection)"]
+        end
+    end
+
+    SW_USBC ==>|Low-Profile 90° Plug| CAB01
+    CAB01 ==> REAR_PKT
+    REAR_PKT ==>|Upstream Host + 15V PD Sink| HUB
+
+    HUB -->|USB-A1 via CAB-02a<br/>15cm Flat USB-A to USB-C| PLANCK
+    HUB -->|USB-A2 via CAB-02b<br/>15cm Flat USB-A to USB-C| TBALL
+    HUB -.->|USB-A3 & HDMI Flush at Wall| EXT_IO
+
+    EXT_PD ==>|20cm Panel Cable| PBANK
+    PBANK ==>|15V PD Output<br/>CC1/CC2 + GND Continuous| SW_CUT
+    SW_CUT ==>|VBUS (15V max 3A)| FUSE
+    FUSE ==>|15V PD Feed into Hub PD Port| HUB
