@@ -5,7 +5,7 @@ All prices below are verified in **EUR (incl. 19% German VAT / MwSt. and shippin
 Following your feedback, this BOM now reflects:
 1. **Your Spare Joy-Con / RCM Hardware (`€0.00`):** Since you can spare your Joy-Con rail/RCM hardware, the replacement rail kit is removed—only a `€0.99` momentary tactile button is needed.
 2. **AliExpress Mass-Sourcing vs. Fast German Retail (Amazon.de / RS):** Every item lists both its **AliExpress Choice price (incl. 19% German IOSS VAT & free 7–10 day shipping)** and its **Amazon.de / EU retail price**.
-3. **Translucent Lilac SLA vs. Non-Translucent (Opaque) SLA Comparison:** Both use the **exact same OpenSCAD STL files** on JLC3DP, so you can choose between **Translucent Lilac (`~€68.98`)** and **Opaque Matte Black/White/Lilac (`~€28.00–€34.50`)** at print checkout.
+3. **100% Premade Enclosure (Zero Home Dyeing or Painting):** All 3D-printed parts arrive ready to assemble out of the box—using **PCBWay Turnkey Factory-Dyed Translucent Lilac SLA (`UTR-8100` + `Pantone 2577 C` Translucent Lilac + UV Clear Coat, `~€145.00`)** or **JLC3DP Premade Un-Dyed Clear (`~€50.00`) / Opaque Matte (`~€28.00`) SLA**.
 
 > [!TIP]
 > Machine-readable CSV version: [`hardware/BOM.csv`](../hardware/BOM.csv)
@@ -46,21 +46,18 @@ Following your feedback, this BOM now reflects:
 
 ---
 
-## 4. Custom 3D-Printed Enclosure: Translucent Lilac vs. Non-Translucent (Opaque) Comparison
+## 4. Custom 3D-Printed Enclosure: 100% Premade Factory Options (Zero Home Dyeing)
 
 > [!IMPORTANT]
-> **Answering your question: Would non-translucent 3D-printed hardware be cheaper?**
-> **Yes—saving `€34.48 to €40.98`!**
-> - **Why Translucent Lilac (`~€68.98`) costs more:** Clear SLA resin (`JLC3DP 8001 Translucent`) has a higher per-gram rate plus mandatory manual sanding and clear-oil spraying (`~€50.00` shipped), and requires buying `Rit DyeMore Royal Purple` (`€9.99`) + `UV Clear Lacquer` (`€8.99`) to dye it translucent lilac.
-> - **Why Non-Translucent / Opaque SLA (`~€28.00` raw / `~€34.50` painted lilac) is much cheaper:** Standard opaque SLA resin on JLC3DP (**`9000R` Matte White/Grey** or **`Imagine Black`**) costs only **`~$0.03–$0.05/g`** with no optical polishing surcharge—bringing all 7 custom parts + test-fit jigs down to **`~€15.00` print + `~€13.00` IOSS shipping = `€28.00` total**! If you want a lilac color on opaque resin, a single `€6.50` can of **Montana GOLD "Lilac" (`V4000` acrylic spray paint)** gives a durable matte lilac finish for **`€34.50` total**.
-> - **Both options use the exact same OpenSCAD `.stl` files** (identical SLA dimensional tolerances).
+> **100% Premade Out-of-the-Box Requirement (No Home Dyeing or Spraying):**
+> - **Primary Recommendation — PCBWay Turnkey Factory-Dyed Translucent Lilac (`~€145.00`):** Ordered on [PCBWay (`pcbway.com`)](https://www.pcbway.com/rapid-prototyping/manufacture/?type=2) in **`UTR-8100 Transparent` SLA resin** with **Factory Custom Pantone `2577 C` Translucent Lilac Immersion Dyeing + Factory UV-Resistant Gloss Clear Spraying**. The parts arrive at your door in Germany already polished, dyed translucent lilac, and UV clear-coated. *(Saving `~€20` by leaving the 2 hidden internal clamps un-dyed is already reflected in the `€145.00` total; dyeing all 7 parts is `~€165.00`).*
+> - **Premade Budget Alternatives on JLC3DP (`~€50.00` Clear / `~€28.00` Opaque):** If you want a lower-cost 100% premade shell with zero home work, [JLC3DP (`jlc3dp.com`)](https://jlc3dp.com/) delivers **`8001 Translucent` with factory Clear Oil Spray** (crystal-clear ice aesthetic, **`~€50.00`** shipped) or **`9000R` Matte White / `Imagine Black` Opaque SLA** (**`~€28.00`** shipped).
+> - **All options use the exact same OpenSCAD `.stl` / `.3mf` files** (identical SLA dimensional tolerances).
 
-| ID | Component | Specification | Qty | **Translucent Lilac SLA (EUR)** | **Opaque SLA Budget Alt (EUR)** | Supplier & Ordering Notes |
+| ID | Component | Specification | Qty | **PCBWay Premade Translucent Lilac (EUR)** | **JLC3DP Premade Clear / Opaque Alt (EUR)** | Supplier & Ordering Notes |
 | :--- | :--- | :--- | :---: | :---: | :---: | :--- |
-| `PRT-01` | **Custom 7-Part SLA Enclosure Set + Test-Fit Jigs** | Upper Lid Shell, Lid Front Retainer, Base Lower Shell, Base Top Deck (Planck + Trackball Socket), Power Bank Retainer, Hinge Brackets & Test Jig (`~340 g` total) | 1 *(set)* | **`€50.00`** *(JLC3DP `8001 Translucent` + Clear Oil Spray incl. DE IOSS shipping)* | **`€28.00`** *(JLC3DP `9000R` Matte White or `Imagine Black` Opaque SLA incl. DE IOSS shipping)* | [JLC3DP (`jlc3dp.com`)](https://jlc3dp.com/) *(Turnkey factory-dyed alternative on [PCBWay `UTR-8100`](https://www.pcbway.com/): `~€165.00`)* |
-| `PRT-02` | **Lilac Color Treatment** | **Translucent:** `Rit DyeMore Synthetic — Royal Purple (207 ml)`<br>**Opaque Alt:** *None (raw matte black/white)* or *Montana GOLD `Lilac` (`400 ml`)* | 1 | **`€9.99`** | **`€0.00`** *(or `€6.50` spray paint)* | [Amazon.de — Rit DyeMore Royal Purple](https://www.amazon.de/s?k=Rit+DyeMore+Royal+Purple) / [Montana GOLD Lilac](https://www.amazon.de/s?k=Montana+GOLD+Lilac+400ml) |
-| `PRT-03` | **UV-Resistant Clear Protective Topcoat** | **Dupli-Color Clear Acrylic UV Varnish (`400 ml`)** *(Mandatory for dyed translucent resin; optional for opaque resin)* | 1 | **`€8.99`** | **`€0.00`** | [Amazon.de — Dupli-Color Klarlack UV-beständig](https://www.amazon.de/s?k=Dupli+Color+Klarlack+UV+best%C3%A4ndig) |
-| — | **Enclosure Subtotal** | | | **`€68.98`** | **`€28.00`** *(raw)* / **`€34.50`** *(lilac paint)* | |
+| `PRT-01` | **Custom 7-Part SLA Enclosure Set + Test-Fit Jig (100% Factory-Finished)** | Upper Lid Shell (`lid_rear`), Lid Front Bezel (`lid_bezel`), Base Lower Shell (`base_bottom`), Base Top Deck (`base_top_deck`), Power Bank Retainer (`battery_retainer`), Cable Clamp (`cable_clamp`) & Test Jig (`test_fit_jig`) | 1 *(set)* | **`€145.00`** *(PCBWay `UTR-8100 Transparent` + Factory `Pantone 2577 C` Translucent Lilac Dye + Factory UV Clear Coat incl. DE IOSS shipping)* | **`€50.00`** *(JLC3DP `8001` Factory Clear Polished)* / **`€28.00`** *(JLC3DP `9000R` / `Imagine Black` Opaque)* | **Primary:** [PCBWay 3D Printing](https://www.pcbway.com/rapid-prototyping/manufacture/?type=2)<br>**Alt:** [JLC3DP](https://jlc3dp.com/) — see [`docs/print-spec.md`](print-spec.md) |
+| — | **Enclosure Subtotal (Zero Home Dyeing)** | | | **`€145.00`** | **`€50.00`** *(clear)* / **`€28.00`** *(opaque)* | |
 
 ---
 
@@ -84,10 +81,10 @@ Following your feedback, this BOM now reflects:
 
 ---
 
-## 7. Complete Budget Comparison (EUR — Germany)
+## 7. Complete Budget Comparison (EUR — Germany, Zero Home Dyeing)
 
-| Build Configuration | Peripherals & Power (`PER/PWR/HUB`) | Cabling, Fuse & RCM (`CAB/ELC/RCM`) | 3D-Printed SLA Shell (`PRT`) | Mechanical & Fasteners (`MEC`) | **Core Build Total (excl. SD & Tools)** | **All-In Total (incl. 256GB SD & Tools)** |
+| Build Configuration | Peripherals & Power (`PER/PWR/HUB`) | Cabling, Fuse & RCM (`CAB/ELC/RCM`) | 3D-Printed SLA Shell (`PRT-01`) | Mechanical & Fasteners (`MEC`) | **Core Build Total (excl. SD & Tools)** | **All-In Total (incl. 256GB SD & Tools)** |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Option 1: AliExpress Mass-Sourced + Translucent Lilac SLA** *(Strict Requirement #6 Compliance)* | `€53.99` | `€11.39` | `€68.98` *(JLC3DP `8001` + Lilac Dye)* | `€12.90` | **`€147.26`** | **`€170.46`** |
-| **Option 2: AliExpress Mass-Sourced + Opaque SLA (`9000R` / `Imagine Black`)** *(Maximum Savings)* | `€53.99` | `€11.39` | `€28.00` *(or `€34.50` w/ Lilac spray)* | `€12.90` | **`€106.28`** *(`€112.78` painted lilac)* | **`€129.48`** *(`€135.98` painted lilac)* |
-| **Option 3: Fast German Retail (Amazon.de / Ploopy / RS) + Translucent Lilac SLA** | `€106.98` | `€45.94` | `€68.98` | `€54.57` | **`€276.47`** | **`€328.44`** |
+| **Option 1: AliExpress Hardware + Turnkey PCBWay Factory-Dyed Translucent Lilac SLA** *(100% Premade Lilac Shell)* | `€53.99` *(or `€92.49` w/ pre-built Ploopy Nano 2)* | `€11.39` | `€145.00` *(PCBWay `UTR-8100` + Factory Pantone `2577 C` Lilac)* | `€12.90` | **`€223.28`** *(`€261.78` w/ pre-built Ploopy Nano 2)* | **`€246.48`** *(`€284.98` w/ pre-built Ploopy)* |
+| **Option 2: AliExpress Hardware + JLC3DP Premade Un-Dyed Clear (`8001`) or Opaque (`9000R`) SLA** | `€53.99` | `€11.39` | `€50.00` *(Clear)* / `€28.00` *(Opaque)* | `€12.90` | **`€128.28`** *(Clear)* / **`€106.28`** *(Opaque)* | **`€151.48`** *(Clear)* / **`€129.48`** *(Opaque)* |
+| **Option 3: Fast German Retail (Amazon.de / Ploopy / RS) + Turnkey PCBWay Factory-Dyed Translucent Lilac SLA** | `€106.98` | `€45.94` | `€145.00` | `€54.57` | **`€352.49`** | **`€404.46`** |

@@ -233,7 +233,7 @@ The following design decisions were confirmed by the user at the conclusion of P
    - **Ploopy Nano 2** (`38 mm` ball, RP2040 QMK/VIA, USB-C) mounted in a dedicated socket to the right of the Planck keyboard, with Left/Right/Middle click and Drag-Scroll mapped to the Planck's bottom-right keys (plus optional flanking switches). Total deck width: `~305 mm`.
 2. **Internal Power Bank — Cheaper Option in Germany Confirmed:**
    - **INIU Carry `P50-E1` / `BI-B62` 45W Slim USB-C PD Power Bank (`10,000 mAh / 37 Wh`, `15V @ 3A` PD, UN 38.3)** at **~€33.99 on Amazon.de** (vs. €69.99+ for Baseus Blade HD 100W). *Note: Parametric OpenSCAD (`cad/config.scad`) will default to the INIU 45W Slim and retain a 1-line preset toggle for the `20,000 mAh` INIU P62-E1 65W (`€44.99`) and Baseus Blade HD (`€69.99`).*
-3. **Translucent Lilac 3D Printing Service — Cheaper Option in Germany Confirmed:**
-   - **JLC3DP `SLA 8001 Translucent Resin` (`~€50.00` shipped to Germany incl. IOSS VAT) + DIY `Rit DyeMore Synthetic — Royal Purple` immersion dye (`€9.99` on Amazon.de) + UV-protective clear acrylic coat (`€8.99`)** for a total enclosure cost of **~€68.98** (saving ~€95 compared to PCBWay custom-dyed `UTR-8100`). PCBWay remains documented as the turnkey alternative.
+3. **Translucent Lilac 3D Printing Service — 100% Premade Turnkey Factory-Dyed Confirmed:**
+   - **PCBWay `SLA UTR-8100 (Transparent)` + Factory Custom Pantone `2577 C` Lilac Immersion Dyeing + Factory UV Clear Coat (`~€145.00–€165.00` shipped to Germany incl. IOSS VAT)**. Arrives 100% finished in Translucent Lilac out of the box with **zero home dyeing or spray painting required**.
 4. **Drop × MIT Planck Revision — Confirmed:**
    - **Drop + OLKB Planck Rev 6.x** (`233.0 × 81.0 mm`, USB-C receptacle, MX hotswap PCB + switch plate).
