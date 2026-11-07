@@ -50,18 +50,18 @@ flowchart LR
 
 This project is executed strictly phase-by-phase with user sign-off between phases:
 
-| Phase | Deliverable | Document / Path | Status |
-| :--- | :--- | :--- | :--- |
-| **1** | **Research Summary** (Prior art, hardware verification, OS HID behavior, trackball & battery trade-offs) | [`docs/research.md`](docs/research.md) | **In Review (Phase 1 Complete)** |
-| **2** | **Bill of Materials (BOM)** (Every part, tool, consumable, EUR pricing, suppliers & alternatives) | `docs/bom.md` & `hardware/BOM.csv` | Pending User Go-Ahead |
-| **3** | **Teardown Plan** (Step-by-step Switch v1 & Drop Planck non-destructive disassembly) | `docs/teardown.md` | Pending |
-| **4** | **Electronics & Wiring Plan** (USB-C hub vs harness, PD power-bank topology, fusing, thermals) | `docs/wiring.md` & `hardware/` | Pending |
-| **5** | **Parametric OpenSCAD CAD Package** (`config.scad`, lid, base, hinge brackets, jigs, STLs) | `cad/` | Pending |
-| **6** | **3D Print Order Specification** (PCBWay / JLC3DP translucent lilac order spec & test-fit jigs) | `docs/print-spec.md` | Pending |
-| **7** | **Assembly Guide** (Step-by-step mechanical & electrical build, torque sequence, first boot) | `docs/assembly.md` | Pending |
-| **8** | **Software Setup Guide (Deferred — User-Owned)** (Live links & hardware constraints placeholder) | [`docs/software.md`](docs/software.md) & [`software/README.md`](software/README.md) | **Placeholder Active (Deferred)** |
-| **9** | **Test & Acceptance Checklist** (Horizon OS, L4T Linux, USB HID, PD charging, thermals, hinges) | `docs/testing.md` | Pending |
-| **10** | **Risk Register** (Top 10 technical, safety, and ban risks with mitigations) | `docs/risks.md` | Pending |
+| Phase | Deliverable | Document / Path | GitHub Issue | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **1** | **Research Summary** (Prior art, hardware verification, OS HID behavior, trackball & battery trade-offs) | [`docs/research.md`](docs/research.md) | [#1](https://github.com/JonasNowak/ns-conv/issues/1) | **In Review (Phase 1 Complete)** |
+| **2** | **Bill of Materials (BOM)** (Every part, tool, consumable, EUR pricing, suppliers & alternatives) | `docs/bom.md` & `hardware/BOM.csv` | [#2](https://github.com/JonasNowak/ns-conv/issues/2) | Pending User Go-Ahead |
+| **3** | **Teardown Plan** (Step-by-step Switch v1 & Drop Planck non-destructive disassembly) | `docs/teardown.md` | [#3](https://github.com/JonasNowak/ns-conv/issues/3) | Pending |
+| **4** | **Electronics & Wiring Plan** (USB-C hub vs harness, PD power-bank topology, fusing, thermals) | `docs/wiring.md` & `hardware/` | [#4](https://github.com/JonasNowak/ns-conv/issues/4) | Pending |
+| **5** | **Parametric OpenSCAD CAD Package** (`config.scad`, lid, base, hinge brackets, jigs, STLs) | `cad/` | [#5](https://github.com/JonasNowak/ns-conv/issues/5) | Pending |
+| **6** | **3D Print Order Specification** (PCBWay / JLC3DP translucent lilac order spec & test-fit jigs) | `docs/print-spec.md` | [#6](https://github.com/JonasNowak/ns-conv/issues/6) | Pending |
+| **7** | **Assembly Guide** (Step-by-step mechanical & electrical build, torque sequence, first boot) | `docs/assembly.md` | [#7](https://github.com/JonasNowak/ns-conv/issues/7) | Pending |
+| **8** | **Software Setup Guide (Deferred — User-Owned)** (Live links & hardware constraints placeholder) | [`docs/software.md`](docs/software.md) & [`software/README.md`](software/README.md) | [#8](https://github.com/JonasNowak/ns-conv/issues/8) | **Placeholder Active (Deferred)** |
+| **9** | **Test & Acceptance Checklist** (Horizon OS, L4T Linux, USB HID, PD charging, thermals, hinges) | `docs/testing.md` | [#9](https://github.com/JonasNowak/ns-conv/issues/9) | Pending |
+| **10** | **Risk Register** (Top 10 technical, safety, and ban risks with mitigations) | `docs/risks.md` | [#10](https://github.com/JonasNowak/ns-conv/issues/10) | Pending |
 
 ---
 
