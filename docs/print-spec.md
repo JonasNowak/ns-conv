@@ -74,3 +74,27 @@ Paste the following instruction into the **"Other Special Requirements"** box on
 > [!TIP]
 > **Tip to Reduce PCBWay's Per-File Dyeing Fee (`Saves ~€18–€22`):**
 > Because PCBWay calculates dyeing/polishing setup fees per uploaded STL file, you can upload `battery_retainer.stl` and `cable_clamp.stl` **un-dyed (`UTR-8100 Transparent` + `Clear Spraying` only, no dyeing fee)** since they sit hidden *inside* the base and lid! Leaving those two small internal brackets clear-transparent reduces the PCBWay turnkey total from **`~€165.00` down to `~€145.00`**.
+
+---
+
+## 4. All 100% Premade Factory SLA Color Options (Same `.stl` Files, Zero Home Work)
+
+Because **all industrial SLA photopolymer resins share the exact same `0.10 mm` layer resolution and `±0.10 mm` dimensional tolerance**, you can pick any of the following **100% premade factory color options** at checkout using the exact same files in [`cad/stl/`](../cad/stl/) without modifying a single CAD parameter:
+
+| Premade Color Option | 3D Print Service | Exact Material & Finish Selection at Checkout | Total Shipped to DE (incl. 19% VAT) | Savings vs. Factory-Dyed Lilac | Visual Appearance |
+| :--- | :--- | :--- | :---: | :---: | :--- |
+| **Option A: Premade Opaque Matte White / Ivory** *(Lowest Cost)* | **[JLC3DP](https://jlc3dp.com/)** | `SLA` → **`9000R` (or `LEDO 6060`)** → Color: `Matte White` → Surface: `Sanded` | **`~€26.00`** | **Saves `€119.00`** | Clean matte white/ivory engineering resin; lowest per-gram resin rate (`~$0.035/g`) |
+| **Option B: Premade Opaque Matte Grey** | **[JLC3DP](https://jlc3dp.com/)** | `SLA` → **`8111X`** → Color: `Dark Grey` → Surface: `Sanded` | **`~€28.00`** | **Saves `€117.00`** | Industrial matte gunmetal/grey enclosure |
+| **Option C: Premade Opaque Matte Black** | **[JLC3DP](https://jlc3dp.com/)** | `SLA` → **`Imagine Black`** → Color: `Matte Black` → Surface: `Sanded` | **`~€30.00`** | **Saves `€115.00`** | Stealth matte black (costs `~€4` more than white due to black pigment resin rate) |
+| **Option D: Premade Translucent Clear ("Ice Clear")** | **[JLC3DP](https://jlc3dp.com/)** | `SLA` → **`8001 Translucent`** → Finish: **`Polishing + Glossy Clear Oil Spray`** | **`~€50.00`** | **Saves `€95.00`** | 100% premade crystal-clear/frosted-ice translucent shell showing internal PCB & ribs, without purple dye |
+| **Option E: Premade Opaque Painted (Red / Silver / Sky Blue)** | **[JLC3DP](https://jlc3dp.com/)** | `SLA` → **`9000R`** → Finish: **`Spray Painting` (`Red`, `Silver`, or `Sky Blue`)** | **`~€58.00`** | **Saves `€87.00`** | Turnkey factory spray-painted opaque color from JLC3DP's standard paint palette |
+| **Option F: Premade Translucent Lilac ("Atomic Purple")** *(Primary Spec)* | **[PCBWay](https://www.pcbway.com/rapid-prototyping/manufacture/?type=2)** | `SLA` → **`UTR-8100 (Transparent)`** → Finish: **`Dyeing (Pantone 2577 C)` + `Clear Spraying`** | **`~€145.00`** *(`€165` all 7 dyed)* | *Baseline* | 100% premade factory vat-dyed translucent lilac with UV gloss clear coat |
+
+---
+
+## 5. Incoming Inspection & Fit Troubleshooting (Zero Re-Print Recovery)
+
+When your factory-finished parts arrive:
+1. **Verify Flatness on a Desk:** Place `base_bottom` and `lid_rear` on a flat glass or granite surface. If thin-walled `lid_bezel` has minor shipping bow (`>0.5 mm`), warm it gently with a hairdryer (`~45 °C` for `30 seconds`) and let it cool under a flat textbook for 10 minutes before assembly.
+2. **Check `MR63ZZ` Bearing Slots in `base_top_deck`:** Drop the three `3 × 6 × 2.5 mm` bearings onto their `3 mm` dowel pins and snap them into the trackball cup. Spin each bearing with your finger to verify the outer ring rotates freely without touching the cup wall.
+3. **Never Use a Hot Soldering Iron on SLA Bosses:** SLA resin (`UTR-8100` / `8001` / `9000R`) is a cross-linked thermoset plastic—it does not melt like FDM PLA/ABS. Install all knurled brass inserts (`MEC-03`) using a tiny drop of medium cyanoacrylate gel (`TOL-02`) on the outer knurls and pressing them flush at room temperature.
