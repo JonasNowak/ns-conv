@@ -47,7 +47,7 @@ flowchart LR
 
 1. **Zero-Destruction Reversibility:** The Switch's factory-bonded LCD, capacitive digitizer, die-cast magnesium midframe, thermal heatpipe/fan, and internal 4310 mAh battery remain intact as a single structural module inside the upper lid. No PCB traces are cut, and the risky LCD/digitizer adhesive separation is completely avoided.
 2. **No High-Speed MIPI DSI Extension Across the Hinge:** Prior art shows that passively extending the Switch's 53-pin MIPI DSI LCD ribbon across a hinge causes severe signal reflection and black-screen failures. Keeping the mainboard and display together in the lid means **only a single USB-C cable** crosses the hinge into the base.
-3. **Horizon OS Safety First:** Stock `sysNAND` remains 100% unmodified for online play. Custom firmware (**Kefir AIO**) and Linux (**Switchroot L4T Ubuntu 24.04 Noble**) run strictly from a high-endurance microSD card (`emuNAND` + Linux ext4 partition) with `exosphere`/`dns.mitm` telemetry blanking.
+3. **Horizon OS Safety First & Mainline Chimera Linux 6.18 (`chimera-l4s`):** Stock `sysNAND` remains 100% unmodified for online play. Custom firmware (**Kefir `v927` AIO**) and Linux (**[`../chimera-l4s`](../chimera-l4s) — Chimera Linux `aarch64` with Linux `6.18.0-enigma-r20-erista+`** + optional **Switchroot L4T Ubuntu** rescue path) run strictly from the external microSD card (`emmc=0`, `LABEL=SWR-CHI` + `emuNAND` with `exosphere`/`dns.mitm` telemetry blanking).
 4. **Translucent Lilac Industrial 3D Printing:** All enclosure components are designed in parametric OpenSCAD (`cad/`) for **SLA Translucent Resin with custom Pantone Lilac dyeing** and clear UV-protective urethane coating via **PCBWay (`UTR-8100 Transparent`)** or **JLC3DP (`8001 Translucent`)**.
 
 ---
@@ -65,7 +65,7 @@ This project is executed strictly phase-by-phase with user sign-off between phas
 | **5** | **Parametric OpenSCAD CAD Package** (`config.scad`, lid, base, hinge brackets, jigs, STLs) | [`cad/`](cad/) & [`docs/cad-overview.md`](docs/cad-overview.md) | [#5](https://github.com/JonasNowak/ns-conv/issues/5) | **Complete** |
 | **6** | **3D Print Order Specification** (PCBWay / JLC3DP all 6 premade factory SLA color options & test-fit jig) | [`docs/print-spec.md`](docs/print-spec.md) | [#6](https://github.com/JonasNowak/ns-conv/issues/6) | **Complete** |
 | **7** | **Assembly Guide** (Step-by-step mechanical & electrical build, torque sequence, first boot) | [`docs/assembly.md`](docs/assembly.md) | [#7](https://github.com/JonasNowak/ns-conv/issues/7) | **Complete** |
-| **8** | **Software Setup Guide (Deferred — User-Owned)** (Live links & hardware constraints placeholder) | [`docs/software.md`](docs/software.md) & [`software/README.md`](software/README.md) | [#8](https://github.com/JonasNowak/ns-conv/issues/8) | **Placeholder Active (Deferred)** |
+| **8** | **Software Setup Guide** (`../chimera-l4s` Linux 6.18 Enigma R20 + Kefir `v927` `emuNAND` + SD deployment script) | [`docs/software.md`](docs/software.md) & [`software/`](software/) | [#8](https://github.com/JonasNowak/ns-conv/issues/8) | **Complete** |
 | **9** | **Test & Acceptance Checklist** (Horizon OS, L4T Linux, USB HID, PD charging, thermals, hinges) | [`docs/testing.md`](docs/testing.md) | [#9](https://github.com/JonasNowak/ns-conv/issues/9) | **Complete** |
 | **10** | **Risk Register** (Top 10 technical, safety, and ban risks with mitigations) | [`docs/risks.md`](docs/risks.md) | [#10](https://github.com/JonasNowak/ns-conv/issues/10) | **Complete** |
 
@@ -93,11 +93,11 @@ ns-conv/
 │   ├── cad-overview.md       # Phase 5: Dimensioned CAD overview & verification checklist
 │   ├── print-spec.md         # Phase 6: PCBWay / JLC3DP premade SLA print specification
 │   ├── assembly.md           # Phase 7: Mechanical assembly & first power-on guide
-│   ├── software.md           # Phase 8: Deferred software placeholder & hardware constraints
+│   ├── software.md           # Phase 8: Full software guide (../chimera-l4s Linux 6.18 + Kefir v927)
 │   ├── testing.md            # Phase 9: Test & acceptance checklist
 │   ├── risks.md              # Phase 10: Top 10 risk register & recovery playbooks
 │   └── renders/              # OpenSCAD PNG renders of all 7 parts + open/closed/exploded views
 ├── cad/                      # Phase 5: Parametric OpenSCAD sources, Makefile, STLs & 3MFs
 ├── hardware/                 # BOM.csv, wiring-diagram.mmd, and component datasheets.md
-└── software/                 # User-owned Kefir CFW & Switchroot L4T Ubuntu notes/scripts
+└── software/                 # deploy-chimera-kefir-sd.sh staging script & chimera-l4s integration
 ```
