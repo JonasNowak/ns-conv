@@ -225,18 +225,15 @@ To ensure the upper lid holds any angle between **100° and 120°** without droo
 
 ---
 
-## 10. Open Questions & Assumptions for User Confirmation Before Phase 2 (BOM)
+## 10. Confirmed User Decisions (Locked In for Phase 2–10)
 
-Please review the four design choices below and let us know your preference (or confirm our recommended defaults) before we generate the full Bill of Materials in Phase 2:
+The following design decisions were confirmed by the user at the conclusion of Phase 1:
 
-1. **Trackball Module & Placement Preference:**
-   - **Option A (Recommended Ergonomics — Right-Side 38mm Finger Ball):** Integrate a **Ploopy Nano 2** (`38 mm` ball, RP2040 QMK, USB-C) mounted to the right of the Planck keyboard, with Left/Right/Middle click mapped to the Planck's bottom-right keys (or two dedicated switches next to the ball). Total deck width: `~305 mm`.
-   - **Option B (Compact Footprint — Centered Front Palm-Rest Trackball):** Integrate a compact **`14 mm`–`19 mm` panel-mount USB optical/laser trackball module with Left/Right buttons** (e.g., Perixx / industrial mini trackball) centered below the Planck's `2u` spacebar. Keeps total deck width ultra-compact at `~255 mm` (matching the Planck's `233 mm` width).
-2. **Power Bank Capacity vs. Weight Preference:**
-   - **Option A (Recommended Runtime — Baseus Blade HD 100W, 20,000 mAh / 74 Wh):** `134 × 134 × 18.0 mm`, `445 g`, ~3.5× extra Switch runtime, total deck weight `~1.37 kg`.
-   - **Option B (Lightweight — INIU P50 / B62 45W Slim, 10,000 mAh / 37 Wh):** `~110 × 68 × 18.5 mm`, `~210 g`, ~1.8× extra Switch runtime, total deck weight `~1.14 kg`.
-3. **3D Printing Service Choice for Translucent Lilac:**
-   - **Option A (Recommended — PCBWay SLA `UTR-8100 Transparent` + Custom Pantone Lilac Dyeing + Clear Spray):** Arrives factory-dyed in translucent lilac and UV-clear-coated ready to assemble.
-   - **Option B (JLC3DP SLA `8001 Translucent` + Clear Oil Spray):** Lower print cost, but ships clear/un-dyed unless you dye it yourself at home with synthetic dye before clear-coating.
-4. **Your Exact Drop × MIT Planck Hardware Revision:**
-   - Do you know which PCB/case revision your Planck is (e.g., **Drop + OLKB Planck Rev 6.x with USB-C and hotswap sockets** in a **Mid-Pro** or **Hi-Pro** aluminum case)? We will assume **Planck Rev 6 (USB-C, `233 × 81 mm`)** by default and provide multi-pattern M2 slots in CAD, plus verification instructions during Phase 3 (Teardown).
+1. **Trackball Module & Placement — Option A Confirmed:**
+   - **Ploopy Nano 2** (`38 mm` ball, RP2040 QMK/VIA, USB-C) mounted in a dedicated socket to the right of the Planck keyboard, with Left/Right/Middle click and Drag-Scroll mapped to the Planck's bottom-right keys (plus optional flanking switches). Total deck width: `~305 mm`.
+2. **Internal Power Bank — Cheaper Option in Germany Confirmed:**
+   - **INIU Carry `P50-E1` / `BI-B62` 45W Slim USB-C PD Power Bank (`10,000 mAh / 37 Wh`, `15V @ 3A` PD, UN 38.3)** at **~€33.99 on Amazon.de** (vs. €69.99+ for Baseus Blade HD 100W). *Note: Parametric OpenSCAD (`cad/config.scad`) will default to the INIU 45W Slim and retain a 1-line preset toggle for the `20,000 mAh` INIU P62-E1 65W (`€44.99`) and Baseus Blade HD (`€69.99`).*
+3. **Translucent Lilac 3D Printing Service — Cheaper Option in Germany Confirmed:**
+   - **JLC3DP `SLA 8001 Translucent Resin` (`~€50.00` shipped to Germany incl. IOSS VAT) + DIY `Rit DyeMore Synthetic — Royal Purple` immersion dye (`€9.99` on Amazon.de) + UV-protective clear acrylic coat (`€8.99`)** for a total enclosure cost of **~€68.98** (saving ~€95 compared to PCBWay custom-dyed `UTR-8100`). PCBWay remains documented as the turnkey alternative.
+4. **Drop × MIT Planck Revision — Confirmed:**
+   - **Drop + OLKB Planck Rev 6.x** (`233.0 × 81.0 mm`, USB-C receptacle, MX hotswap PCB + switch plate).
