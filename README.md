@@ -2,6 +2,10 @@
 
 A complete, reversible hardware conversion that transforms an unpatched first-generation **Nintendo Switch v1 (2017 Erista, `HAC-001`)** into a **translucent lilac clamshell cyberdeck** integrating a **Drop × OLKB MIT Planck 40% ortholinear keyboard**, a **compact 38 mm USB HID trackball**, and an **internal slim UN 38.3 USB-C PD power bank**.
 
+> [!TIP]
+> **Interactive 3D WebGL CAD Studio & All-in-One Documentation Portal:**
+> Open **[`docs/index.html`](docs/index.html)** (or visit the deployed GitHub Pages site) to spin the 3D cyberdeck, animate the clamshell lid (`0°–125°`), explode all 7 OpenSCAD STL meshes, switch between all 6 premade SLA factory colors, and browse/search all 10 engineering guides in one interactive app!
+
 ![Open Clamshell Cyberdeck Render](docs/renders/assembly_open_iso.png)
 
 | Exploded Assembly View | Closed Clamshell View (`0°`) |

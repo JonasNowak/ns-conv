@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ns-conv // Nintendo Switch v1 → Clamshell Cyberdeck 3D CAD Studio & Engineering Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- Three.js + OrbitControls + Marked.js + Mermaid.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <!-- Top Engineering Header -->
+  <header class="top-header">
+    <div class="brand-group">
+      <div class="brand-badge">NX</div>
+      <div>
+        <div class="brand-title">ns-conv // Nintendo Switch v1 Clamshell Cyberdeck</div>
+        <div class="brand-subtitle">Erista T210 • Drop × MIT Planck • 38mm QMK Trackball • Chimera Linux 6.18 + Kefir</div>
+      </div>
+    </div>
+
+    <div class="layout-switcher" role="group" aria-label="Workspace View Mode">
+      <button class="layout-btn active" data-mode="split">⚡ Split Studio + Docs</button>
+      <button class="layout-btn" data-mode="3d">🧊 Full 3D CAD Studio</button>
+      <button class="layout-btn" data-mode="docs">📖 Full Documentation</button>
+    </div>
+
+    <div class="header-actions">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input
+          id="global-search-input"
+          class="search-input"
+          type="text"
+          placeholder="Search all 10 guides (e.g. PCBWay, 6KRO, chimera)..."
+          autocomplete="off"
+        />
+        <div id="search-results-dropdown" class="search-results-dropdown"></div>
+      </div>
+      <a class="gh-link" href="https://github.com/JonasNowak/ns-conv" target="_blank" rel="noopener">
+        <span>GitHub Repo</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main id="main-workspace" class="workspace">
+    <!-- Left Navigation Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <div class="nav-section-title">Engineering Deliverables (1–10)</div>
+        <ul id="guide-nav-list" class="nav-list"></ul>
+      </div>
+
+      <div class="spec-card-mini">
+        <div><span>Envelope</span><strong>306 × 162 × 44.2 mm</strong></div>
+        <div><span>Total Mass</span><strong>~1.26 kg</strong></div>
+        <div><span>Battery</span><strong>53.0 Wh (15V PD)</strong></div>
+        <div><span>Hinge Hold</span><strong>100°–120° (0.40 N·m)</strong></div>
+        <div><span>Linux Kernel</span><strong>6.18.0-enigma-r20</strong></div>
+      </div>
+    </aside>
+
+    <!-- Center Interactive 3D WebGL CAD Studio -->
+    <section class="viewer-pane" aria-label="Interactive 3D Cyberdeck Render">
+      <!-- Top Floating HUD -->
+      <div class="viewer-hud-top">
+        <div class="hud-card">
+          <div class="hud-title">🧊 3D CAD Part Inspector (OpenSCAD Meshes)</div>
+          <div class="part-selector-row">
+            <button class="part-chip active" data-part="full">Full Clamshell</button>
+            <button class="part-chip" data-part="base_bottom">base_bottom</button>
+            <button class="part-chip" data-part="base_top_deck">base_top_deck</button>
+            <button class="part-chip" data-part="lid_rear">lid_rear</button>
+            <button class="part-chip" data-part="lid_bezel">lid_bezel</button>
+            <button class="part-chip" data-part="battery_retainer">battery_retainer</button>
+            <button class="part-chip" data-part="cable_clamp">cable_clamp</button>
+            <button class="part-chip" data-part="test_fit_jig">test_fit_jig</button>
+          </div>
+        </div>
+
+        <div class="hud-card">
+          <div class="hud-title">🎨 Premade Factory SLA Color Options</div>
+          <div class="swatch-row">
+            <div id="swatch-container" style="display:flex;gap:6px;"></div>
+            <div>
+              <div id="active-swatch-name" class="swatch-label">Translucent Lilac (PCBWay UTR-8100 + Pantone 2577 C)</div>
+              <div id="active-swatch-price" class="swatch-price">€145.00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WebGL Canvas Target -->
+      <div id="webgl-container"></div>
+
+      <!-- 3D Callout Overlay Pins -->
+      <div id="callout-layer" class="callout-layer"></div>
+
+      <!-- Bottom Floating Controls HUD -->
+      <div class="viewer-hud-bottom">
+        <div class="hud-card" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
+          <div class="slider-group">
+            <label for="lid-angle-slider">Lid Angle:</label>
+            <input id="lid-angle-slider" type="range" min="0" max="125" step="1" value="112" />
+            <span id="lid-angle-val" class="slider-val">112°</span>
+            <button class="hud-btn" data-lid-preset="0" title="Closed Clamshell (0°)">0°</button>
+            <button class="hud-btn" data-lid-preset="112" title="Ergonomic Typing Angle (112°)">112°</button>
+          </div>
+
+          <div class="slider-group">
+            <label for="explode-slider">Explode View:</label>
+            <input id="explode-slider" type="range" min="0" max="45" step="1" value="0" />
+            <span id="explode-val" class="slider-val">0mm</span>
+          </div>
+        </div>
+
+        <div class="hud-card hud-btn-group">
+          <button id="btn-screen-os" class="hud-btn">🖥 LCD: Chimera 6.18</button>
+          <button id="btn-callouts" class="hud-btn active">📌 3D Callouts</button>
+          <button id="btn-wireframe" class="hud-btn">🕸 Wireframe</button>
+          <button id="btn-autospin" class="hud-btn">🔄 Auto-Spin</button>
+          <button id="btn-reset-cam" class="hud-btn">🎯 Reset View</button>
+          <a id="download-stl-btn" class="hud-btn" href="models/base_bottom.stl" download>⬇ Download .STL</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Documentation Reader Pane -->
+    <section class="docs-pane" aria-label="Engineering Documentation">
+      <div class="docs-container">
+        <div class="doc-toolbar">
+          <div id="doc-breadcrumb" class="doc-breadcrumb">HOME // README.md</div>
+          <div class="hud-btn-group">
+            <button class="hud-btn" onclick="window.print()">🖨 Print / Save PDF</button>
+          </div>
+        </div>
+        <article id="doc-content" class="markdown-body"></article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bundled 3D STL Meshes & All 10 Engineering Guides -->
+  <script src="assets/models-bundle.js"></script>
+  <script src="assets/guides-bundle.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
