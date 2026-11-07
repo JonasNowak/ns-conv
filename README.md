@@ -1,6 +1,12 @@
 # Nintendo Switch v1 (Erista) → Clamshell Cyberdeck (`ns-conv`)
 
-A complete, reversible hardware conversion that transforms an unpatched first-generation **Nintendo Switch v1 (2017 Erista, `HAC-001`)** into a **translucent lilac clamshell cyberdeck** integrating a **Drop × OLKB MIT Planck 40% ortholinear keyboard**, a **compact USB HID trackball**, and an **internal slim UN 38.3 USB-C PD power bank**.
+A complete, reversible hardware conversion that transforms an unpatched first-generation **Nintendo Switch v1 (2017 Erista, `HAC-001`)** into a **translucent lilac clamshell cyberdeck** integrating a **Drop × OLKB MIT Planck 40% ortholinear keyboard**, a **compact 38 mm USB HID trackball**, and an **internal slim UN 38.3 USB-C PD power bank**.
+
+![Open Clamshell Cyberdeck Render](docs/renders/assembly_open_iso.png)
+
+| Exploded Assembly View | Closed Clamshell View (`0°`) |
+| :---: | :---: |
+| ![Exploded View](docs/renders/assembly_exploded.png) | ![Closed View](docs/renders/assembly_closed.png) |
 
 ---
 
@@ -55,9 +61,9 @@ This project is executed strictly phase-by-phase with user sign-off between phas
 | **1** | **Research Summary** (Prior art, hardware verification, OS HID behavior, trackball & battery trade-offs) | [`docs/research.md`](docs/research.md) | [#1](https://github.com/JonasNowak/ns-conv/issues/1) | **Complete** |
 | **2** | **Bill of Materials (BOM)** (Every part, tool, consumable, EUR pricing, suppliers & alternatives) | [`docs/bom.md`](docs/bom.md) & [`hardware/BOM.csv`](hardware/BOM.csv) | [#2](https://github.com/JonasNowak/ns-conv/issues/2) | **Complete** |
 | **3** | **Teardown Plan** (Step-by-step Switch v1 & Drop Planck non-destructive disassembly) | [`docs/teardown.md`](docs/teardown.md) | [#3](https://github.com/JonasNowak/ns-conv/issues/3) | **Complete** |
-| **4** | **Electronics & Wiring Plan** (USB-C hub vs harness, PD power-bank topology, fusing, thermals) | [`docs/wiring.md`](docs/wiring.md) & [`hardware/`](hardware/) | [#4](https://github.com/JonasNowak/ns-conv/issues/4) | **In Review (Phase 4 Complete)** |
-| **5** | **Parametric OpenSCAD CAD Package** (`config.scad`, lid, base, hinge brackets, jigs, STLs) | `cad/` | [#5](https://github.com/JonasNowak/ns-conv/issues/5) | Pending User Go-Ahead |
-| **6** | **3D Print Order Specification** (PCBWay / JLC3DP translucent lilac order spec & test-fit jigs) | `docs/print-spec.md` | [#6](https://github.com/JonasNowak/ns-conv/issues/6) | Pending |
+| **4** | **Electronics & Wiring Plan** (USB-C hub vs harness, PD power-bank topology, fusing, thermals) | [`docs/wiring.md`](docs/wiring.md) & [`hardware/`](hardware/) | [#4](https://github.com/JonasNowak/ns-conv/issues/4) | **Complete** |
+| **5** | **Parametric OpenSCAD CAD Package** (`config.scad`, lid, base, hinge brackets, jigs, STLs) | [`cad/`](cad/) & [`docs/cad-overview.md`](docs/cad-overview.md) | [#5](https://github.com/JonasNowak/ns-conv/issues/5) | **In Review (Phase 5 Complete)** |
+| **6** | **3D Print Order Specification** (PCBWay / JLC3DP translucent lilac order spec & test-fit jigs) | `docs/print-spec.md` | [#6](https://github.com/JonasNowak/ns-conv/issues/6) | Pending User Go-Ahead |
 | **7** | **Assembly Guide** (Step-by-step mechanical & electrical build, torque sequence, first boot) | `docs/assembly.md` | [#7](https://github.com/JonasNowak/ns-conv/issues/7) | Pending |
 | **8** | **Software Setup Guide (Deferred — User-Owned)** (Live links & hardware constraints placeholder) | [`docs/software.md`](docs/software.md) & [`software/README.md`](software/README.md) | [#8](https://github.com/JonasNowak/ns-conv/issues/8) | **Placeholder Active (Deferred)** |
 | **9** | **Test & Acceptance Checklist** (Horizon OS, L4T Linux, USB HID, PD charging, thermals, hinges) | `docs/testing.md` | [#9](https://github.com/JonasNowak/ns-conv/issues/9) | Pending |
