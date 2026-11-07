@@ -63,11 +63,20 @@ This project is executed strictly phase-by-phase with user sign-off between phas
 | **3** | **Teardown Plan** (Step-by-step Switch v1 & Drop Planck non-destructive disassembly) | [`docs/teardown.md`](docs/teardown.md) | [#3](https://github.com/JonasNowak/ns-conv/issues/3) | **Complete** |
 | **4** | **Electronics & Wiring Plan** (USB-C hub vs harness, PD power-bank topology, fusing, thermals) | [`docs/wiring.md`](docs/wiring.md) & [`hardware/`](hardware/) | [#4](https://github.com/JonasNowak/ns-conv/issues/4) | **Complete** |
 | **5** | **Parametric OpenSCAD CAD Package** (`config.scad`, lid, base, hinge brackets, jigs, STLs) | [`cad/`](cad/) & [`docs/cad-overview.md`](docs/cad-overview.md) | [#5](https://github.com/JonasNowak/ns-conv/issues/5) | **Complete** |
-| **6** | **3D Print Order Specification** (PCBWay / JLC3DP translucent lilac order spec & test-fit jigs) | [`docs/print-spec.md`](docs/print-spec.md) | [#6](https://github.com/JonasNowak/ns-conv/issues/6) | **In Review (Phase 6 Complete)** |
-| **7** | **Assembly Guide** (Step-by-step mechanical & electrical build, torque sequence, first boot) | `docs/assembly.md` | [#7](https://github.com/JonasNowak/ns-conv/issues/7) | Pending User Go-Ahead |
+| **6** | **3D Print Order Specification** (PCBWay / JLC3DP all 6 premade factory SLA color options & test-fit jig) | [`docs/print-spec.md`](docs/print-spec.md) | [#6](https://github.com/JonasNowak/ns-conv/issues/6) | **Complete** |
+| **7** | **Assembly Guide** (Step-by-step mechanical & electrical build, torque sequence, first boot) | [`docs/assembly.md`](docs/assembly.md) | [#7](https://github.com/JonasNowak/ns-conv/issues/7) | **Complete** |
 | **8** | **Software Setup Guide (Deferred — User-Owned)** (Live links & hardware constraints placeholder) | [`docs/software.md`](docs/software.md) & [`software/README.md`](software/README.md) | [#8](https://github.com/JonasNowak/ns-conv/issues/8) | **Placeholder Active (Deferred)** |
-| **9** | **Test & Acceptance Checklist** (Horizon OS, L4T Linux, USB HID, PD charging, thermals, hinges) | `docs/testing.md` | [#9](https://github.com/JonasNowak/ns-conv/issues/9) | Pending |
-| **10** | **Risk Register** (Top 10 technical, safety, and ban risks with mitigations) | `docs/risks.md` | [#10](https://github.com/JonasNowak/ns-conv/issues/10) | Pending |
+| **9** | **Test & Acceptance Checklist** (Horizon OS, L4T Linux, USB HID, PD charging, thermals, hinges) | [`docs/testing.md`](docs/testing.md) | [#9](https://github.com/JonasNowak/ns-conv/issues/9) | **Complete** |
+| **10** | **Risk Register** (Top 10 technical, safety, and ban risks with mitigations) | [`docs/risks.md`](docs/risks.md) | [#10](https://github.com/JonasNowak/ns-conv/issues/10) | **Complete** |
+
+---
+
+## Exposed External Ports & Wireless Connectivity Summary
+
+- **Wi-Fi & Bluetooth (`BCM4356` 2×2 MIMO 802.11ac 2.4/5 GHz + BT 4.1):** Both factory Switch `U.FL` coaxial cables and flat PCB patch antennas remain plugged into the mainboard and sit inside the **100% RF-transparent non-conductive SLA upper lid (`2.5 mm` wall)**, preserving full dual-band Wi-Fi and wireless Joy-Con / Bluetooth range in both Horizon OS and L4T Ubuntu Linux.
+- **Right-Side Flush I/O Window (`cad/base_bottom.scad`):** Exposes **`1× USB-A 3.0 SuperSpeed (5 Gbps)` port** + **`1× 4K HDMI` output port** directly from the internal 5-in-1 USB-C PD hub (`HUB-01`) for external flash drives, SDR dongles, Ethernet adapters, or an external monitor.
+- **Rear Panel I/O (`cad/base_bottom.scad`):** Exposes **`1× USB-C PD Charging Socket (`CAB-03`)`**, the **Recessed Center RCM / Direct Switch USB-C Coupler Pocket**, and the **Master Battery Cutoff Switch (`ELC-02`)**.
+- **Top & Bottom Lid I/O (`cad/lid_rear.scad`):** Exposes the Switch's native **Power button**, **Volume `+/-`**, **`3.5 mm` audio jack**, **Game Card slot**, **Top Heatsink Exhaust**, **Rear Intake Louvers**, **microSDXC slot**, and **Recessed RCM Momentary Pinhole Button (`RCM-01`)**.
 
 ---
 
@@ -78,15 +87,17 @@ ns-conv/
 ├── README.md                 # Project overview, architecture, and build phase tracker
 ├── docs/
 │   ├── research.md           # Phase 1: Prior art, donor verification & subsystem trade-offs
-│   ├── bom.md                # Phase 2: Bill of Materials & EUR budget (upcoming)
-│   ├── teardown.md           # Phase 3: Non-destructive Switch v1 & Planck teardown (upcoming)
-│   ├── wiring.md             # Phase 4: Internal USB-C hub, PD power bank & fusing plan (upcoming)
-│   ├── print-spec.md         # Phase 6: PCBWay / JLC3DP translucent lilac print spec (upcoming)
-│   ├── assembly.md           # Phase 7: Mechanical assembly & first power-on guide (upcoming)
+│   ├── bom.md                # Phase 2: Bill of Materials & EUR budget (AliExpress vs DE)
+│   ├── teardown.md           # Phase 3: Non-destructive Switch v1 & Planck teardown
+│   ├── wiring.md             # Phase 4: Internal USB-C hub, PD power bank & fusing plan
+│   ├── cad-overview.md       # Phase 5: Dimensioned CAD overview & verification checklist
+│   ├── print-spec.md         # Phase 6: PCBWay / JLC3DP premade SLA print specification
+│   ├── assembly.md           # Phase 7: Mechanical assembly & first power-on guide
 │   ├── software.md           # Phase 8: Deferred software placeholder & hardware constraints
-│   ├── testing.md            # Phase 9: Test & acceptance checklist (upcoming)
-│   └── risks.md              # Phase 10: Top 10 risk register (upcoming)
-├── cad/                      # Phase 5: Parametric OpenSCAD sources, Makefile & STL exports
-├── hardware/                 # BOM.csv, wiring schematics, and component datasheet references
+│   ├── testing.md            # Phase 9: Test & acceptance checklist
+│   ├── risks.md              # Phase 10: Top 10 risk register & recovery playbooks
+│   └── renders/              # OpenSCAD PNG renders of all 7 parts + open/closed/exploded views
+├── cad/                      # Phase 5: Parametric OpenSCAD sources, Makefile, STLs & 3MFs
+├── hardware/                 # BOM.csv, wiring-diagram.mmd, and component datasheets.md
 └── software/                 # User-owned Kefir CFW & Switchroot L4T Ubuntu notes/scripts
 ```
