@@ -1,0 +1,41 @@
+name: OpenSCAD CAD Build & Verification
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'cad/**'
+      - '.github/workflows/cad-build.yml'
+  pull_request:
+    paths:
+      - 'cad/**'
+
+jobs:
+  build-cad:
+    name: Export STLs, 3MFs & PNG Previews
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install OpenSCAD & Xvfb
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openscad xvfb
+
+      - name: Verify & Export STL and 3MF Meshes
+        run: |
+          make -C cad stls 3mfs OPENSCAD=openscad SCAD_FLAGS="--hardwarnings"
+
+      - name: Render PNG Previews via Xvfb
+        run: |
+          xvfb-run -a make -C cad renders OPENSCAD=openscad SCAD_FLAGS="--hardwarnings"
+
+      - name: Upload Compiled CAD Artifacts (STL, 3MF & PNG)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ns-conv-cad-package
+          path: |
+            cad/stl/*.stl
+            cad/3mf/*.3mf
+            docs/renders/*.png
